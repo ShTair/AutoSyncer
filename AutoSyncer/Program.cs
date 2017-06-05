@@ -39,7 +39,7 @@ namespace AutoSyncer
             Execute(parameter.GitPath, $"clean -f");
 
             //action
-            Execute(parameter.ActionPath);
+            Execute(parameter.ActionPath, parameter.ActionArguments);
 
             //git add -A
             Execute(parameter.GitPath, $"add -A");
@@ -59,6 +59,7 @@ namespace AutoSyncer
                 BranchName = "master",
                 RemoteBranchName = "origin/master",
                 ActionPath = @"C:\Program Files\Git\bin\git.exe",
+                ActionArguments = "args",
             };
 
             var json = JsonConvert.SerializeObject(parameter, Formatting.Indented);
@@ -68,7 +69,7 @@ namespace AutoSyncer
             Console.ReadLine();
         }
 
-        private static void Execute(string path, string command = null)
+        private static void Execute(string path, string command)
         {
             var pi = new ProcessStartInfo
             {

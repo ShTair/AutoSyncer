@@ -12,6 +12,8 @@ namespace AutoSyncer
 
         public string ActionPath { get; set; }
 
+        public string ActionArguments { get; set; }
+
         [JsonIgnore]
         public string RepositoryName => RemoteBranchName.Remove(RemoteBranchName.IndexOf('/'));
     }
