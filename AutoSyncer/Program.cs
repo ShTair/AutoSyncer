@@ -18,7 +18,7 @@ namespace AutoSyncer
             Execute(parameter.GitPath, $"clean -f");
 
             //git checkout <branch>
-            Execute(parameter.GitPath, $"checkout {"branch"}");
+            Execute(parameter.GitPath, $"checkout {parameter.BranchName}");
 
             //git fetch <repos>
             Execute(parameter.GitPath, $"fetch {"repos"}");
