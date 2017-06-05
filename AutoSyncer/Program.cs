@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace AutoSyncer
 {
@@ -51,6 +53,12 @@ namespace AutoSyncer
             {
                 p.WaitForExit(300000);
             }
+        }
+
+        private static Parameter Load(string path)
+        {
+            var json = File.ReadAllText(path);
+            return JsonConvert.DeserializeObject<Parameter>(path);
         }
     }
 }
