@@ -30,6 +30,7 @@ namespace AutoSyncer
             Execute(parameter.GitPath, $"clean -f");
 
             //action
+            Execute(parameter.ActionPath);
 
             //git add -A
             Execute(parameter.GitPath, $"add -A");
@@ -41,7 +42,7 @@ namespace AutoSyncer
             Execute(parameter.GitPath, $"push -f");
         }
 
-        private static void Execute(string path, string command)
+        private static void Execute(string path, string command = null)
         {
             var pi = new ProcessStartInfo
             {
