@@ -9,36 +9,36 @@ namespace AutoSyncer
     {
         static void Main(string[] args)
         {
-            var git = "";
+            var parameter = Load(args[0]);
 
             //git reset --hard
-            Execute(git, $"reset --hard");
+            Execute(parameter.GitPath, $"reset --hard");
 
             //git clean -f
-            Execute(git, $"clean -f");
+            Execute(parameter.GitPath, $"clean -f");
 
             //git checkout <branch>
-            Execute(git, $"checkout {"branch"}");
+            Execute(parameter.GitPath, $"checkout {"branch"}");
 
             //git fetch <repos>
-            Execute(git, $"fetch {"repos"}");
+            Execute(parameter.GitPath, $"fetch {"repos"}");
 
             //git reset --hard <remoteBranch>
-            Execute(git, $"reset --hard {"remoteBranch"}");
+            Execute(parameter.GitPath, $"reset --hard {"remoteBranch"}");
 
             //git clean -f
-            Execute(git, $"clean -f");
+            Execute(parameter.GitPath, $"clean -f");
 
             //action
 
             //git add -A
-            Execute(git, $"add -A");
+            Execute(parameter.GitPath, $"add -A");
 
             //git commit -m \"<message>\"
-            Execute(git, $"commit -m \"sync [{DateTime.Now:yyyy/MM/dd HH:mm:ss}]\"");
+            Execute(parameter.GitPath, $"commit -m \"sync [{DateTime.Now:yyyy/MM/dd HH:mm:ss}]\"");
 
             //git push -f
-            Execute(git, $"push -f");
+            Execute(parameter.GitPath, $"push -f");
         }
 
         private static void Execute(string path, string command)
