@@ -35,9 +35,6 @@ namespace AutoSyncer
             //git reset --hard <remoteBranch>
             Execute(parameter.GitPath, $"reset --hard {parameter.RemoteBranchName}");
 
-            //git clean -f
-            Execute(parameter.GitPath, $"clean -f");
-
             //action
             Execute(parameter.ActionPath, parameter.ActionArguments);
 
