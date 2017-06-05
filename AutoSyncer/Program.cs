@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AutoSyncer
+﻿namespace AutoSyncer
 {
     class Program
     {
         static void Main(string[] args)
         {
+            //git checkout <branch>
+            //git fetch
+            //git reset --hard origin/<branch>
+            //action
+            //git add -A
+            //git commit -m \"<message>\"
+            //git push -f
         }
     }
 }
