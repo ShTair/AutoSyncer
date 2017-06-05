@@ -86,7 +86,7 @@ namespace AutoSyncer
         private static Parameter Load(string path)
         {
             var json = File.ReadAllText(path);
-            return JsonConvert.DeserializeObject<Parameter>(path);
+            return JsonConvert.DeserializeObject<Parameter>(json);
         }
     }
 }
