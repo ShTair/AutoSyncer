@@ -21,10 +21,10 @@ namespace AutoSyncer
             Execute(parameter.GitPath, $"checkout {parameter.BranchName}");
 
             //git fetch <repos>
-            Execute(parameter.GitPath, $"fetch {"repos"}");
+            Execute(parameter.GitPath, $"fetch {parameter.RepositoryName}");
 
             //git reset --hard <remoteBranch>
-            Execute(parameter.GitPath, $"reset --hard {"remoteBranch"}");
+            Execute(parameter.GitPath, $"reset --hard {parameter.RemoteBranchName}");
 
             //git clean -f
             Execute(parameter.GitPath, $"clean -f");
