@@ -9,7 +9,16 @@ namespace AutoSyncer
     {
         static void Main(string[] args)
         {
-            var parameter = Load(args[0]);
+            Parameter parameter;
+            try
+            {
+                parameter = Load(args[0]);
+            }
+            catch
+            {
+                GenerateParameterFile();
+                return;
+            }
 
             //git reset --hard
             Execute(parameter.GitPath, $"reset --hard");
@@ -40,6 +49,23 @@ namespace AutoSyncer
 
             //git push -f
             Execute(parameter.GitPath, $"push -f");
+        }
+
+        private static void GenerateParameterFile()
+        {
+            var parameter = new Parameter
+            {
+                GitPath = @"C:\Program Files\Git\bin\git.exe",
+                BranchName = "master",
+                RemoteBranchName = "origin/master",
+                ActionPath = @"C:\Program Files\Git\bin\git.exe",
+            };
+
+            var json = JsonConvert.SerializeObject(parameter, Formatting.Indented);
+            File.WriteAllText("parameter.json", json);
+
+            Console.WriteLine("設定ファイルの例を生成しました。");
+            Console.ReadLine();
         }
 
         private static void Execute(string path, string command = null)
