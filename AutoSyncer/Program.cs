@@ -18,11 +18,11 @@ namespace AutoSyncer
             //git checkout <branch>
             Execute(git, $"checkout {"branch"}");
 
-            //git fetch
+            //git fetch <repos>
             Execute(git, $"fetch {"repos"}");
 
-            //git reset --hard origin/<branch>
-            Execute(git, $"reset --hard {"repos"}/{"branch"}");
+            //git reset --hard <remoteBranch>
+            Execute(git, $"reset --hard {"remoteBranch"}");
 
             //git clean -f
             Execute(git, $"clean -f");
